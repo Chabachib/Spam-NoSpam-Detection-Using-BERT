@@ -44,10 +44,10 @@ The BERTClassifier leverages the powerful natural language understanding capabil
 - **BERT Backbone:**
 The pre-trained BERT model serves as the foundation of the classifier. It is responsible for generating contextual embeddings for the input text. These embeddings encapsulate the semantic and syntactic nuances of the text, making the model highly effective at understanding complex language patterns.
 
-- <ins> **Dropout Layer:** <ins>
+- **<ins>Dropout Layer:<ins>**
 A dropout layer is added after the BERT output to mitigate overfitting. This layer randomly zeroes out a fraction of the neurons during training, ensuring the model generalizes well to unseen data.
 
-- <ins> **Fully Connected Layer:** <ins>
+- **Fully Connected Layer:**
 The classifier head consists of a fully connected layer that takes the embeddings from the BERT model and maps them to two output classes—spam and ham. This layer translates the high-dimensional representations from BERT into a simple decision boundary for binary classification.
 
 - **Cross-Entropy Loss Function:**
@@ -64,6 +64,29 @@ The `predict_sentiment` function enables the model to make predictions on raw in
 - **Model Inference:** The encoded text is passed through the trained BERTClassifier, which processes the input and generates a set of logits (unnormalized probabilities) for each class.
 
 - **Class Mapping:** The predicted logits are converted to class indices using torch.max, and the class index is mapped to its corresponding label: "spam" for index 1 and "ham" for index 0.
+
+### 5. Parameters
+- `bert_model_name:` The pre-trained BERT model to use (bert-base-uncased).
+- `num_classes:` Number of output classes (2: spam and ham).
+- `max_length:` Maximum length for truncating/padding text inputs (128 tokens).
+- `batch_size:` Batch size for training and evaluation (16).
+- `num_epochs:` Number of training epochs (4).
+- `learning_rate:` Learning rate for the optimizer (2e-5).
+
+### 6. Workflow
+- The dataset is split into training and validation sets using train_test_split.
+- SpamClassificationDataset converts text and labels into a format compatible with BERT.
+- The BERTClassifier is initialized and moved to the appropriate device (CPU or GPU).
+- The model is trained for 4 epochs.
+- After each epoch, the validation accuracy and classification report are printed.
+- The classification report includes precision, recall, and F1-score for both classes.
+
+### 7. Results
+Achieved validation accuracy above 99% after the first epoch, which remains consistent across all epochs.
+Classification Report:
+- `Class 0 (Ham):` Very high precision, recall, and F1-scores (close to 1.00).
+- `Class 1 (Spam):` Slightly lower recall (e.g., 0.95–0.97) but overall strong performance.
+
 
 ## 🚀 Installation
 
