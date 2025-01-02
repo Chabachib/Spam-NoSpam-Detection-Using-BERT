@@ -14,14 +14,16 @@ A powerful spam detection system that combines BERT classification with multilin
 
 ```
 spam-detection/
-├── main.py                 # Streamlit dashboard implementation
-├── utils.py               # Utility functions for model loading and translation
-├── requirements.txt       # Project dependencies
+├── app/
+│   ├── main.py              # Streamlit dashboard implementation
+│   ├── utils.py             # Utility functions for model loading and translation
 ├── models/
-│   ├── bert_classifier.pth    # Trained BERT model
-│   ├── opus-mt-fr-en/        # French to English translation model
-│   ├── opus-mt-es-en/        # Spanish to English translation model
-│   └── opus-mt-ar-en/        # Arabic to English translation model
+│   ├── bert_classifier.pth  # Trained BERT model
+├── translated_models/
+│   ├── opus-mt-fr-en/       # French to English translation model
+│   ├── opus-mt-es-en/       # Spanish to English translation model
+│   └── opus-mt-ar-en/       # Arabic to English translation model
+├── requirements.txt         # Project dependencies
 ```
 
 ## 🚀 Installation
