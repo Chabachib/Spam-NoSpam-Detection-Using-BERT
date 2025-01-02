@@ -19,6 +19,8 @@ spam-detection/
 │   ├── utils.py             # Utility functions for model loading and translation
 ├── models/
 │   ├── bert_classifier.pth  # Trained BERT model
+├── notebooks/
+│   ├── notebook.ipynb       # The project's notebook
 ├── translated_models/
 │   ├── opus-mt-fr-en/       # French to English translation model
 │   ├── opus-mt-es-en/       # Spanish to English translation model
