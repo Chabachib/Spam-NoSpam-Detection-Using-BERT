@@ -44,11 +44,11 @@ The BERTClassifier leverages the powerful natural language understanding capabil
 - **BERT Backbone:**
 The pre-trained BERT model serves as the foundation of the classifier. It is responsible for generating contextual embeddings for the input text. These embeddings encapsulate the semantic and syntactic nuances of the text, making the model highly effective at understanding complex language patterns.
 
-- **Dropout Layer:**
+- <ins> **Dropout Layer:** <ins>
 A dropout layer is added after the BERT output to mitigate overfitting. This layer randomly zeroes out a fraction of the neurons during training, ensuring the model generalizes well to unseen data.
 
-- **Fully Connected Layer:**
-The classifier head consists of a fully <ins>connected<ins> layer that takes the embeddings from the BERT model and maps them to two output classes—spam and ham. This layer translates the high-dimensional representations from BERT into a simple decision boundary for binary classification.
+- <ins> **Fully Connected Layer:** <ins>
+The classifier head consists of a fully connected layer that takes the embeddings from the BERT model and maps them to two output classes—spam and ham. This layer translates the high-dimensional representations from BERT into a simple decision boundary for binary classification.
 
 - **Cross-Entropy Loss Function:**
 The model uses the cross-entropy loss function to calculate the discrepancy between the predicted and true class labels. This loss guides the optimization process during training.
