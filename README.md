@@ -32,8 +32,8 @@ spam-detection/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/Chabachib/Multilingual-Spam-NoSpam-Detection-Using-BERT.git
-cd Multilingual-Spam-NoSpam-Detection-Using-BERT
+git clone https://github.com/Chabachib/Spam-NoSpam-Detection-Using-BERT.git
+cd Spam-NoSpam-Detection-Using-BERT
 ```
 
 2. Create a virtual environment (optional but recommended):
@@ -62,7 +62,7 @@ streamlit run main.py
    - Detect the input language
    - Translate the text to English if necessary
    - Classify the text as spam or ham
-   - Display the results with confidence scores
+   - Display the results
 
 ## 🛠️ Technical Details
 
