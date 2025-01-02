@@ -33,7 +33,9 @@ spam-detection/
 PyTorch, Transformers (Provides the pre-trained BERT model and tokenizer), Scikit-learn, Pandas, Matplotlib/Seaborn, WordCloud
 
 ### Dataset Preparation
-We used datasets sourced from Kaggle, here's the link [Link to Dataset](https://kaggle.com/datasets/574375de5edc46f705ed8fbcd63d72430f601e22adee7fda2bc94a69ee7160b5), which consisted of two files: messages.csv (email dataset) and spam.csv (SMS dataset). Both datasets were loaded into pandas DataFrames using pd.read_csv() with the on_bad_lines='skip' parameter to handle any malformed rows. Unnecessary columns were removed from each dataset to focus on the text and corresponding labels, and the target labels were standardized to ensure consistency by mapping 0 to "ham" (not spam) and 1 to "spam". The column order was then rearranged for uniformity, ensuring both datasets contained a text column for the message content and a label column for classification. Finally, the cleaned and aligned DataFrames were concatenated into a single dataset for further analysis and modeling.
+We used datasets sourced from Kaggle, here's the [Link to Dataset](https://kaggle.com/datasets/574375de5edc46f705ed8fbcd63d72430f601e22adee7fda2bc94a69ee7160b5), which consisted of two files: messages.csv (email dataset) and spam.csv (SMS dataset). 
+Both datasets were loaded into pandas DataFrames using `pd.read_csv()` with the `on_bad_lines='skip'` parameter to handle any malformed rows. Unnecessary columns were removed from each dataset to focus only on the text and corresponding labels, and the target labels were standardized to ensure consistency by mapping `0` to `"ham"` (not spam) and `1` to `"spam"`. The column order was then rearranged for uniformity, ensuring both datasets contained a text column for the message content and a label column for classification. 
+Finally, the cleaned and aligned DataFrames were concatenated into a single dataset for further analysis and modeling.
 
 
 ## 🚀 Installation
