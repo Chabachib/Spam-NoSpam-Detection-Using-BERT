@@ -1,0 +1,4 @@
+models/bert_classifier.pth filter=lfs diff=lfs merge=lfs -text
+translated_models/opus-mt-ar-en/model.safetensors filter=lfs diff=lfs merge=lfs -text
+translated_models/opus-mt-es-en/model.safetensors filter=lfs diff=lfs merge=lfs -text
+translated_models/opus-mt-fr-en/model.safetensors filter=lfs diff=lfs merge=lfs -text
