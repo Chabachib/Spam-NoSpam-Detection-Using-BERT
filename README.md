@@ -41,29 +41,29 @@ Finally, the cleaned and aligned DataFrames were concatenated into a single data
 
 The BERTClassifier leverages the powerful natural language understanding capabilities of the pre-trained BERT model (bert-base-uncased) provided by Hugging Face. It is specifically tailored for the binary classification task of identifying spam versus ham messages. The architecture is designed to balance robustness, accuracy, and simplicity, consisting of the following key components:
 
-- **BERT Backbone:**
+- **<ins>BERT Backbone:<ins>**
 The pre-trained BERT model serves as the foundation of the classifier. It is responsible for generating contextual embeddings for the input text. These embeddings encapsulate the semantic and syntactic nuances of the text, making the model highly effective at understanding complex language patterns.
 
 - **<ins>Dropout Layer:<ins>**
 A dropout layer is added after the BERT output to mitigate overfitting. This layer randomly zeroes out a fraction of the neurons during training, ensuring the model generalizes well to unseen data.
 
-- **Fully Connected Layer:**
+- **<ins>Fully Connected Layer:<ins>**
 The classifier head consists of a fully connected layer that takes the embeddings from the BERT model and maps them to two output classes—spam and ham. This layer translates the high-dimensional representations from BERT into a simple decision boundary for binary classification.
 
-- **Cross-Entropy Loss Function:**
+- **<ins>Cross-Entropy Loss Function:<ins>**
 The model uses the cross-entropy loss function to calculate the discrepancy between the predicted and true class labels. This loss guides the optimization process during training.
 
-- **Optimization and Scheduling:**
+- **<ins>Optimization and Scheduling:<ins>**
 The AdamW optimizer, known for its adaptive learning rates and weight decay properties, is used to update the model weights. A linear learning rate scheduler with warm-up steps ensures smooth optimization, preventing abrupt changes that might destabilize training.
 
 ### 4. Text Prediction
 The `predict_sentiment` function enables the model to make predictions on raw input text, determining whether it is classified as `"spam"` or `"ham"`. The function follows a structured process to ensure accurate predictions:
 
-- **Text Encoding:** The raw text input is tokenized using the same tokenizer used during model training. This step transforms the text into a numerical format that the model can process. The tokenizer generates input_ids and attention_mask with consistent padding and truncation to maintain the required input size.
+- **<ins>Text Encoding:<ins>** The raw text input is tokenized using the same tokenizer used during model training. This step transforms the text into a numerical format that the model can process. The tokenizer generates input_ids and attention_mask with consistent padding and truncation to maintain the required input size.
 
-- **Model Inference:** The encoded text is passed through the trained BERTClassifier, which processes the input and generates a set of logits (unnormalized probabilities) for each class.
+- **<ins>Model Inference:<ins>** The encoded text is passed through the trained BERTClassifier, which processes the input and generates a set of logits (unnormalized probabilities) for each class.
 
-- **Class Mapping:** The predicted logits are converted to class indices using torch.max, and the class index is mapped to its corresponding label: "spam" for index 1 and "ham" for index 0.
+- **<ins>Class Mapping:<ins>** The predicted logits are converted to class indices using torch.max, and the class index is mapped to its corresponding label: "spam" for index 1 and "ham" for index 0.
 
 ### 5. Parameters
 - `bert_model_name:` The pre-trained BERT model to use (bert-base-uncased).
@@ -87,6 +87,8 @@ Classification Report:
 - `Class 0 (Ham):` Very high precision, recall, and F1-scores (close to 1.00).
 - `Class 1 (Spam):` Slightly lower recall (e.g., 0.95–0.97) but overall strong performance.
 
+### 8. Translation Models
+For our translation models, we utilized the Open Neural Machine Translation [Opus-MT](https://github.com/Helsinki-NLP/Opus-MT) models, developed and maintained by the Helsinki-NLP team. These models are built using the Marian NMT framework, a highly efficient and scalable platform for neural machine translation. The Opus-MT models support a wide range of languages and have been fine-tuned on various multilingual corpora, making them highly versatile for translation tasks.
 
 ## 🚀 Installation
 
