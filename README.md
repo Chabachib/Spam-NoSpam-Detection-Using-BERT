@@ -17,6 +17,7 @@ spam-detection/
 ├── app/
 │   ├── main.py              # Streamlit dashboard implementation
 │   ├── utils.py             # Utility functions for model loading and translation
+│   ├── classifier.py        # BERT Classifier and predict spam function
 ├── models/
 │   ├── bert_classifier.pth  # Trained BERT model
 ├── notebooks/
@@ -26,6 +27,7 @@ spam-detection/
 │   ├── opus-mt-es-en/       # Spanish to English translation model
 │   └── opus-mt-ar-en/       # Arabic to English translation model
 ├── requirements.txt         # Project dependencies
+├── README.md                # README file for clarifications
 ```
 
 ## 📖 Project Overview
@@ -59,11 +61,11 @@ The AdamW optimizer, known for its adaptive learning rates and weight decay prop
 ### 4. Text Prediction
 The `predict_sentiment` function enables the model to make predictions on raw input text, determining whether it is classified as `"spam"` or `"ham"`. The function follows a structured process to ensure accurate predictions:
 
-- **<ins>Text Encoding:<ins>** The raw text input is tokenized using the same tokenizer used during model training. This step transforms the text into a numerical format that the model can process. The tokenizer generates input_ids and attention_mask with consistent padding and truncation to maintain the required input size.
+- **<ins>Text Encoding:<ins>** The raw text input is tokenized using the same tokenizer used during model training. This step transforms the text into a numerical format that the model can process. The tokenizer generates `input_ids` and `attention_mask` with consistent padding and truncation to maintain the required input size.
 
 - **<ins>Model Inference:<ins>** The encoded text is passed through the trained BERTClassifier, which processes the input and generates a set of logits (unnormalized probabilities) for each class.
 
-- **<ins>Class Mapping:<ins>** The predicted logits are converted to class indices using torch.max, and the class index is mapped to its corresponding label: "spam" for index 1 and "ham" for index 0.
+- **<ins>Class Mapping:<ins>** The predicted logits are converted to class indices using torch.max, and the class index is mapped to its corresponding label: `"spam"` for index `1` and `"ham"` for index `0`.
 
 ### 5. Parameters
 - `bert_model_name:` The pre-trained BERT model to use (bert-base-uncased).
