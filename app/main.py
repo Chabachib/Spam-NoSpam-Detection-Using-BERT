@@ -2,10 +2,17 @@ from classifier import *
 from utils import *
 import streamlit as st
 
+st.set_page_config(
+    page_title="Text Spam Detection",
+    page_icon="🚫",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 st.title("Multilingual Text Spam Classification")
 
 # language selection
-st.sidebar.header("Settings")
+st.sidebar.header("Languages")
 src_lang = st.sidebar.selectbox("Select source language", ["Arabic", "French", "English", "Spanish"])
 
 st.subheader("Input Text")
@@ -34,6 +41,10 @@ if st.button("Classify"):
             st.subheader("Input Text (No Translation Required)")
             st.text(user_text)
             text_to_classify = user_text
+            # Classify the translated text
+            prediction = predict_spam(text_to_classify, bert_model, bert_tokenizer)
+            st.subheader("Prediction")
+            st.success(prediction)
         else:
             # Translate the input text
             translator_tokenizer, translator_model = translation_models[src_lang]
@@ -41,8 +52,8 @@ if st.button("Classify"):
             st.subheader("Translated Text")
             st.text(translated_text)
             text_to_classify = translated_text
+            # Classify the translated text
+            prediction = predict_spam(translated_text, bert_model, bert_tokenizer)
+            st.subheader("Prediction")
+            st.success(prediction)
 
-        # Classify the translated text
-        prediction = predict_spam(translated_text, bert_model, bert_tokenizer)
-        st.subheader("Prediction")
-        st.success(prediction)
