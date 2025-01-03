@@ -161,4 +161,4 @@ Key dependencies include:
 
 ## 📧 Contact
 
-Project Link: [https://github.com/Chabachib/Multilingual-Spam-NoSpam-Detection-Using-BERT](https://github.com/Chabachib/Multilingual-Spam-NoSpam-Detection-Using-BERT)
+Project Link: [https://github.com/Chabachib/Spam-NoSpam-Detection-Using-BERT](https://github.com/Chabachib/Spam-NoSpam-Detection-Using-BERT)
